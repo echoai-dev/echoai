@@ -1,0 +1,68 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compiled python bytecode #
+############################
+*.pyc
+*.pyo
+__pycache__/
+
+# Distribution / packaging #
+#############################
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyCharm files #
+##################
+.idea/
+*.iml
+*.ipr
+*.iws
+*.bak
+*.dstore
+
+# Visual Studio Code files #
+############################
+.vscode/
+*.code-workspace
+
+# macOS #
+#########
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails #
+##############
+._*
+
+# Vim #
+#######
+*.swp
+
+# Secrets #
+#######
+.env
