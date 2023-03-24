@@ -38,27 +38,36 @@ def get_completion(prompt, engine):
     text = response.choices[0].text
     return text
 
-def get_chat_completion(prompt, model='gpt-3.5-turbo'):
+def get_chat_completion(prompt, engine='gpt-3.5-turbo-0301'):
     """
-    Sends a prompt to the GPT-3.5 turbo chat model and returns the extracted text.
+    Sends a prompt to the GPT-3.5 turbo chat engine and returns the extracted text.
 
-    :param prompt: The prompt for the chat model
-    :param model: The chat model to use (default is 'gpt-3.5-turbo')
-    :return: The extracted text from the OpenAI chat model response
+    :param prompt: The prompt for the chat engine
+    :param engine: The chat engine to use (default is 'gpt-3.5-turbo')
+    :return: The extracted text from the OpenAI chat engine response
     """
-
-    # Send the prompt to the OpenAI chat model for completion
+    # Send the prompt to the OpenAI chat engine for completion
     logging.debug("Sending prompt to OpenAI API: %s", prompt)
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=[
-        {"role": "system", "content": "You are a helpful coding assistant."},
-        {"role": "user", "content": prompt},
-        ]
-    )
+    if "azure" in openai.api_type:
+        response = openai.ChatCompletion.create(
+            engine=engine,
+            messages=[
+            {"role": "system", "content": "You are a helpful coding assistant."},
+            {"role": "user", "content": prompt},
+            ]
+        )
+    else:
+        response = openai.ChatCompletion.create(
+            model=engine,
+            messages=[
+            {"role": "system", "content": "You are a helpful coding assistant."},
+            {"role": "user", "content": prompt},
+            ]
+        )
+
     logging.debug("Received response from OpenAI API: %s", response)
 
-    # Extract the text from the OpenAI chat model response
+    # Extract the text from the OpenAI chat engine response
     text = response.choices[0]['message']['content']
     return text
 
