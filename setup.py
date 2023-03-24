@@ -12,7 +12,7 @@ setup(
     version=f"0.1.0.{commit_sha[:5]}",
     author="Fabio Dr.No Nonato",
     author_email="echoaidev@gmail.com",
-    description="The command line tool to interface with Generative AI",
+    description="The command line tool to interface with Generative AI.",
     long_description=long_description,
     packages=find_packages(),
     classifiers=[
