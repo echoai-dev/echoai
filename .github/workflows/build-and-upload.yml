@@ -14,7 +14,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: "3.8"
+        python-version: "3.x"
       
     - name: Install dependencies
       run: |
@@ -23,10 +23,13 @@ jobs:
       
     - name: Build package
       run: |
+        # sha_prefix=$(echo ${{github.sha}} | cut -c 1-5)
         python setup.py sdist bdist_wheel
+        # mv dist/*.tar.gz dist/*whl dist/*linux_*.tar.gz "dist/echoai_dev-${sha_prefix}.tar.gz" "dist/echoai_dev-${sha_prefix}-py3-none-any.whl" "dist/echoai_dev-${sha_prefix}-manylinux1_x86_64.whl"      
+      
       
     - name: Upload to PyPI
-      uses: pypa/gh-action-pypi-publish@master
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
         password: ${{ secrets.PYPI_TOKEN }}
