@@ -22,8 +22,10 @@ echoai "Why does the Python live on land?"
 
 This will generate a response from the Generative AI that hopefully answers the question. Of course, the quality of the response will depend on the specific model and prompt used.
 
->Disclaimer: AI jokes may not be funny to human beings. Use at your own risk.
+> Disclaimer: AI jokes may not be funny to human beings. Use at your own risk.
 
 ### OpenAI environment variables. 
 
 The `echoai` cli works with the environment variables set for OpenAI. If you use Azure endpoints, you can set your `OPENAI_API_TYPE`, `_VERSION`, `_ENGINE` and `_BASE` according to your Azure project.
+
+### AI21 environment variables.
