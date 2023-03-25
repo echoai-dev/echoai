@@ -9,7 +9,7 @@ from pygments import highlight
 from pygments.lexers import PythonLexer, MarkdownLexer, BashLexer
 from pygments.formatters import TerminalFormatter
 
-def get_completion(prompt, engine):
+def get_completion(prompt, engine='davinci-instruct-beta'):
     """
     Sends a prompt to OpenAI's API for completion and returns the extracted text.
 
@@ -116,14 +116,16 @@ def main():
 
     # Initialize OpenAI API key
     openai.api_key = os.getenv('OPENAI_API_KEY')
+    openai_engine = os.getenv('OPENAI_API_ENGINE','gpt-3.5-turbo-0301')
+    openai.api_version = os.getenv('OPENAI_API_VERSION')
 
     # Get response from OpenAI
     if not args.nochat:
         logging.debug("Getting chat response from OpenAI for prompt: %s", args.prompt)
-        response = get_chat_completion(args.prompt)
+        response = get_chat_completion(args.prompt, openai_engine)
     else:
         logging.debug("Getting completion from OpenAI Codex for prompt: %s", args.prompt)
-        response = get_completion(args.prompt, "davinci-codex")
+        response = get_completion(args.prompt, openai_engine)
 
     # Format response with syntax highlighting and colors
     logging.debug("Formatting response")
