@@ -14,6 +14,7 @@ setup(
     author_email="echoaidev@gmail.com",
     description="The command line tool to interface with Generative AI.",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     classifiers=[
         'Programming Language :: Python :: 3',
