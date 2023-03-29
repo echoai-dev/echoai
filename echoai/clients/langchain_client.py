@@ -1,5 +1,7 @@
 import logging
 from langchain.llms import OpenAI
+from langchain.callbacks.base import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 import openai
 
 class LangChainOpenAIClient():
@@ -22,3 +24,8 @@ class LangChainOpenAIClient():
         logging.debug("Using LangChain to query OpenAI with prompt: %s", prompt)
         text = self.llm(prompt)
         return text
+    
+    def get_chat_completion(self, prompt):
+        raise NotImplementedError("Chat with LangChain Clients has not been implemented yet.")
+
+

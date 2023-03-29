@@ -28,4 +28,6 @@ This will generate a response from the Generative AI that hopefully answers the 
 
 The `echoai` cli works with the environment variables set for OpenAI. If you use Azure endpoints, you can set your `OPENAI_API_TYPE`, `_VERSION`, `_ENGINE` and `_BASE` according to your Azure project.
 
-### AI21 environment variables.
+## Testing
+
+Install unittest and run `python -m unittest discover`

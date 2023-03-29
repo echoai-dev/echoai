@@ -74,11 +74,10 @@ def main():
     if args.nochat:
         logging.debug("Getting completion from OpenAI Codex for prompt: %s", args.prompt)
         response = client.get_completion(args.prompt)
-    elif not args.chain:
+    else:
         logging.debug("Getting chat response from OpenAI for prompt: %s", args.prompt)
         response = client.get_chat_completion(args.prompt)
-    else:
-        response = f'Unfortunately I cannot yet work with nochat = {args.nochat} and chain = {args.chain}'
+    
 
 
     # Format response with syntax highlighting and colors
