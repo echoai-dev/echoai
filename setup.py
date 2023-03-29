@@ -1,5 +1,17 @@
 from setuptools import setup, find_packages
 import subprocess
+import shutil
+import os
+
+# added clean function
+def cleanechoai():
+    shutil.rmtree("dist")
+    shutil.rmtree("build")
+    shutil.rmtree("echoai.egg-info")
+
+if os.path.exists("echoai.egg-info"):
+    print("Removing old builds")
+    cleanechoai()
 
 # get current git commit sha
 commit_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD']).strip().decode()
@@ -31,3 +43,4 @@ setup(
         "pygments"
     ]
 )
+
