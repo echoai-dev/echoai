@@ -40,7 +40,8 @@ setup(
     },
     install_requires =[
         "openai",
-        "pygments"
+        "pygments",
+        "langchain"
     ]
 )
 
