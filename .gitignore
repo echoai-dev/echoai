@@ -66,3 +66,4 @@ share/python-wheels/
 # Secrets #
 #######
 .env
+.extra

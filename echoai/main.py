@@ -5,8 +5,7 @@ import os
 from pygments import highlight
 from pygments.lexers import PythonLexer, MarkdownLexer, BashLexer, guess_lexer
 from pygments.formatters.terminal256 import Terminal256Formatter
-from echoai.clients.openai_client import OpenAIClient
-from echoai.clients.langchain_client import OpenAILangChain
+from echoai.clients.langchain_client import OpenAILangChain, AzureOpenAILangChain
 
 def format_text(text):
     """
@@ -54,11 +53,18 @@ def main():
     # Parse command line arguments
     args = parser.parse_args()
 
-    client = OpenAILangChain(is_chat=args.chat)
+    api_type = os.getenv('OPENAI_API_TYPE','oai')
+
+    if 'azure' in api_type.lower():
+        logging.info(f'Setting user defined API type to {api_type}')
+        engine = os.getenv('OPENAI_API_ENGINE')
+        client = AzureOpenAILangChain(is_chat=args.chat,deployment_name=engine)
+    else:
+        client = OpenAILangChain(is_chat=args.chat)
     
     # Get response from OpenAI
     if args.chat:
-        
+
         logging.debug("Getting chat response from OpenAI for prompt: %s", args.prompt)
         response = client.get_chat_completion(args.prompt)
     else:
