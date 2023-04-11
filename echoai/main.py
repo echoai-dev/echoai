@@ -48,16 +48,17 @@ def main():
     # Define command line arguments
     parser = argparse.ArgumentParser(description="Generate code completions using OpenAI Codex.")
     parser.add_argument("prompt", help="The prompt for code completion.")
-    parser.add_argument("--chat", help="DO NOT Use the GPT-3.5 turbo chat model instead of the Codex model.", action="store_true")
+    parser.add_argument("--chat", help="Use chat interface", action="store_true")
     parser.add_argument("--format", help="Use Pygments to format the terminal output", action="store_true")
 
     # Parse command line arguments
     args = parser.parse_args()
 
-    client = OpenAILangChain()
+    client = OpenAILangChain(is_chat=args.chat)
     
     # Get response from OpenAI
     if args.chat:
+        
         logging.debug("Getting chat response from OpenAI for prompt: %s", args.prompt)
         response = client.get_chat_completion(args.prompt)
     else:
