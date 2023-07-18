@@ -1,6 +1,6 @@
 import logging
 from langchain.llms import OpenAI, AzureOpenAI
-from langchain.callbacks.base import CallbackManager
+from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 import openai
 import os
