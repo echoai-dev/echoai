@@ -15,6 +15,8 @@ export OPENAI_API_KEY='sk-...'
 ```
 For Anthropic Claude models, use the aws cli to configure your environement by running the command: `aws config`
 
+Use the environment variable `ECHOAI_BACKEND` to define which backend model to use. This variable can take two values `bedrock` or `openai`. If the variable is not define, the default behavior is `openai`.
+
 Once that's done, you can use the `echoai` command-line tool to interface with Generative AI. Here is an example of how you can use it:
 
 ```bash
@@ -32,4 +34,5 @@ The `echoai` cli works with the environment variables set for OpenAI. If you use
 ## New features
 
 - [x] Support for AWS Bedrock (Claude models)
-- [] 
+- [ ] Read files in mentioned paths
+- [ ] 
