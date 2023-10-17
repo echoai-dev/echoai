@@ -34,5 +34,5 @@ The `echoai` cli works with the environment variables set for OpenAI. If you use
 ## New features
 
 - [x] Support for AWS Bedrock (Claude models)
-- [ ] Read files in mentioned paths
-- [ ] 
+- [ ] Read files from mentioned paths
+- [ ] Print code blocks to file
