@@ -3,16 +3,19 @@
 ## Install
 
 ```bash
-pip install openai-dev
+pip install echoai-dev
 ```
 
 ## Usage
 
-This cli depends on `openai` and it needs to be configured with your OpenAI API token. 
+You can use this cli with either openai GPT or Anthropic Claude (through AWS Bedrock). To use GPT models, configure your OpenAI API token. 
 
 ```bash
 export OPENAI_API_KEY='sk-...'
 ```
+For Anthropic Claude models, use the aws cli to configure your environement by running the command: `aws config`
+
+Use the environment variable `ECHOAI_BACKEND` to define which backend model to use. This variable can take two values `bedrock` or `openai`. If the variable is not define, the default behavior is `openai`.
 
 Once that's done, you can use the `echoai` command-line tool to interface with Generative AI. Here is an example of how you can use it:
 
@@ -24,10 +27,12 @@ This will generate a response from the Generative AI that hopefully answers the 
 
 > Disclaimer: AI jokes may not be funny to human beings. Use at your own risk.
 
-### OpenAI environment variables. 
+### Azure OpenAI environment variables. 
 
 The `echoai` cli works with the environment variables set for OpenAI. If you use Azure endpoints, you can set your `OPENAI_API_TYPE`, `_VERSION`, `_ENGINE` and `_BASE` according to your Azure project.
 
-## Testing
+## New features
 
-Install unittest and run `python -m unittest discover`
+- [x] Support for AWS Bedrock (Claude models)
+- [ ] Read files from mentioned paths
+- [ ] Print code blocks to file
