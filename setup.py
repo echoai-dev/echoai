@@ -21,7 +21,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="echoai-dev",
-    version=f"0.2.1rc1",
+    version=f"0.2.1",
     author="Fabio Dr.No Nonato",
     author_email="echoaidev@gmail.com",
     description="The command line tool to interface with Generative AI.",
